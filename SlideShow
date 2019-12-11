@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+</head>
+<body>
+    <figure id="video_player">
+       <video controls width="700px">
+        <source src="./vid/Test1.mp4" type="video/mp4">
+        <source src="./vid/Test2.mp4" type="video/mp4">
+        <source src="./vid/Test3.mp4" type="video/mp4"> 
+               
+        </video>
+        <figcaption> 
+            <ul>
+                <li>
+                  <a href="./vid/Test1.mp4">Play Video 1</a>  
+                </li>
+                <li>
+                    <a href="./vid/Test2.mp4">Play Video 2</a>
+                </li>
+                <li>
+                    <a href="./vid/Test3.mp4">Play Video 3</a>
+                </li>
+            </ul>
+        </figcaption>
+    </figure>
+</body>
+</html>
+
+<script type="text/javascript">
+var video_player=document.getElementById("video_player"),
+links=video_player.getElementsByTagName('a');
+for(var i=0; i<links.length; i++){
+    links[i].onclick=handler;
+} 
+
+function handler(e){
+    e.preventDefault();
+    videotarget=this.getAttribute("href");
+    filename=videotarget.substr(0,videotarget.lastIndexOf('.'))||videotarget;
+    console.log(filename);
+    video=document.querySelector("#video_player video");
+    video.removeAttribute('poster');
+    source=document.querySelectorAll("#video_player video source");
+    source[0].src=filename  + ".mp4";
+    source[1].src=filename  + ".webm";
+    
+    video.load();
+    video.play();
+
+}
+</script>
