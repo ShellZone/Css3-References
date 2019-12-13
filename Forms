@@ -12,16 +12,22 @@
     <form action="/index2.html" form>
         <!-- User and type input-->
         <label for="UserName">UserName</label>
-        <input autocomplete="off" maxLength='13' name="user" type="text" id="user">
+        <input autocomplete="off" 
+        maxLength='13' name="user" type="text" 
+        id="user" placeholder="Username"
+        required>
 
         
         <label for="Email">Email</label> 
-        <input naxLength='30' name="email" 
+        <input 
+        required
+        naxLength='30' name="email" placeholder="Email"
         type="email">
         <button 
         type="submit"> Submit</button>
      
         <select name="Products" id="product">
+            <option value=""></option>
    <!-- DropDown -->
             <!-- Changes Options -->
             <option value="Green">Green</option>
@@ -29,8 +35,19 @@
             <option value="Blue">Blue</option>
 
             <!-- Options -->
-<textarea name="message" id="message" cols="30" rows="10"></textarea>
+<textarea name="message" id="message" 
+cols="30" required
+rows="10"></textarea>
         </select>
+    <!-- Radio Button input -->
+    
+    <input type="radio" name="products" value="android">
+    <input type="radio" name="products" value="macbook">
+    <input type="radio" name="products" value="playstation">
+    <button type="submit">Submit</button>
+
+    
+    
     </form>
 </body>
 </html>
